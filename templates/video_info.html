@@ -1,0 +1,40 @@
+{% extends 'base.html' %}
+
+{% block title %}Streams{% endblock %}
+{% block head %}
+<script src="{{ url_for('static', filename='streams.js')}}"></script>
+{% endblock %}
+{% block body %}
+<section class="video-info">
+	<div class="heading">
+		<img src="{{ thumbnail }}" alt="youtube video thumbnail">
+		<h2>{{ title }}</h2>
+	</div>
+	<div class="streams">
+		<div class="video-streams">
+			<h3>Video</h3>
+			<div class="hrline"></div>
+			<div class="streams-group">
+				{% for stream in video_streams %}
+					<button onclick="getStream('{{ url }}', {{ stream.index }}, 'video')">
+						{{ stream.quality }}<br>
+						{{ '%.2fMB' % (stream.filesize / (1024 * 1024)) }}
+					</button>
+				{% endfor %}
+			</div>
+		</div>
+		<div class="audio-streams">
+			<h3>Audio</h3>
+			<div class="hrline"></div>
+			<div class="streams-group">
+				{% for stream in audio_streams %}
+					<button onclick="getStream('{{ url }}', {{ stream.index }}, 'audio')">
+						{{ stream.quality }}<br>
+						{{ '%.2fMB' % (stream.filesize / (1024 * 1024)) }}
+					</button>
+				{% endfor %}
+			</div>
+		</div>
+	</div>
+</section>
+{% endblock %}

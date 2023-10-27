@@ -1,0 +1,12 @@
+.env
+__pycache__/
+assets/
+
+# Replit configurations
+.replit
+.replit.config
+replit.nix
+.upm
+.pythonlibs
+poetry.lock
+pyproject.toml

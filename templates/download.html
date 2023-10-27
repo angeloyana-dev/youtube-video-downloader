@@ -1,0 +1,16 @@
+{% extends 'base.html' %}
+
+{% block title %}Download{% endblock %}
+{% block body %}
+<section class="download">
+	<div class="heading">
+		<img src="{{ thumbnail }}" alt="youtube video thumbnail">
+		<h2>{{ title }}</h2>
+	</div>
+	<div class="btn-group">
+		<button onclick="(() => window.location.href = '{{ download_url }}')()">Download</button>
+		<div class="hrline"></div>
+		<button type="button" onclick="(() => window.location.href = '/')()">Convert again</button>
+	</div>
+</section>
+{% endblock %}

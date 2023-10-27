@@ -1,0 +1,16 @@
+{% extends 'base.html' %}
+
+{% block title %}Home{% endblock %}
+{% block body %}
+<section class="input">
+	{% with status = get_flashed_messages(with_categories=True) %}
+		{% if status %}
+			<p class="{{ status[0][0] }}">{{ status[0][1] }}</p>
+		{% endif %}
+	{% endwith %}
+	<form method="POST" action="/get/streams">
+		<input type="text" name="url" placeholder="Enter youtube video url">
+		<button type="submit">Convert</button>
+	</form>
+</section>
+{% endblock %}
